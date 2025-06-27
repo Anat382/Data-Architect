@@ -1,0 +1,11 @@
+ijson
+pandas
+numpy
+matplotlib
+seaborn
+xgboost
+python-dotenv
+scikit-learn
+psycopg2-binary
+apache-airflow-providers-postgres
+sqlalchemy

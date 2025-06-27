@@ -1,0 +1,501 @@
+2025-06-26 13:10:20,199 - __main__ - INFO - Успешное подключение к базе данных
+2025-06-26 13:10:20,222 - __main__ - INFO - SQLAlchemy engine создан успешно
+2025-06-26 13:10:20,262 - __main__ - INFO - Таблицы успешно созданы
+2025-06-26 13:10:20,262 - __main__ - INFO - Этап 1/6: Загрузка данных...
+2025-06-26 13:10:20,269 - __main__ - ERROR - Ошибка при загрузке данных: Execution failed on sql '
+            SELECT 
+                v.vacancy_id,
+                v.professional_sphere_name,
+                v.schedule_type,
+                v.experience_requirements,
+                v.company_business_size,
+                v.region_name,
+                v.education_type,
+                v.salary_min,
+                v.salary_max,
+                v.date_published,
+                v.job_title,
+                v.employment_type,
+                c.industry as company_industry,
+                c.employee_count as company_size
+            FROM dm.vacancies v
+            LEFT JOIN dm.companies c ON v.company_id = c.company_id
+            WHERE v.salary_min IS NOT NULL 
+              AND v.salary_max IS NOT NULL
+              AND v.date_published >= CURRENT_DATE - INTERVAL '2 years'
+            ': relation "dm.companies" does not exist
+LINE 18:             LEFT JOIN dm.companies c ON v.company_id = c.com...
+                               ^
+
+2025-06-26 13:10:20,270 - __main__ - ERROR - Критическая ошибка в пайплайне: Execution failed on sql '
+            SELECT 
+                v.vacancy_id,
+                v.professional_sphere_name,
+                v.schedule_type,
+                v.experience_requirements,
+                v.company_business_size,
+                v.region_name,
+                v.education_type,
+                v.salary_min,
+                v.salary_max,
+                v.date_published,
+                v.job_title,
+                v.employment_type,
+                c.industry as company_industry,
+                c.employee_count as company_size
+            FROM dm.vacancies v
+            LEFT JOIN dm.companies c ON v.company_id = c.company_id
+            WHERE v.salary_min IS NOT NULL 
+              AND v.salary_max IS NOT NULL
+              AND v.date_published >= CURRENT_DATE - INTERVAL '2 years'
+            ': relation "dm.companies" does not exist
+LINE 18:             LEFT JOIN dm.companies c ON v.company_id = c.com...
+                               ^
+
+2025-06-26 14:09:55,758 - __main__ - INFO - Успешное подключение к базе данных
+2025-06-26 14:09:55,780 - __main__ - INFO - SQLAlchemy engine создан успешно
+2025-06-26 14:09:55,782 - __main__ - INFO - Таблицы успешно созданы
+2025-06-26 14:09:55,782 - __main__ - INFO - Этап 1/6: Загрузка данных...
+2025-06-26 14:09:55,788 - __main__ - ERROR - Ошибка при загрузке данных: Execution failed on sql '
+            SELECT 
+                v.vacancy_id,
+                v.professional_sphere_name,
+                v.schedule_type,
+                v.experience_requirements,
+                v.company_business_size,
+                v.region_name,
+                v.education_type,
+                v.salary_min,
+                v.salary_max,
+                v.date_published,
+                v.vacancy_name as job_title,
+                v.schedule_type employment_type,
+                CASE 
+                    WHEN professional_sphere_name IN ('Продажи', 'Закупки', 'Снабжение', 'Торговля') 
+                        THEN 'Торговля и снабжение'
+                    WHEN professional_sphere_name IN ('Кадровая служба', 'Управление персоналом') 
+                        THEN 'HR и управление персоналом'
+                    WHEN professional_sphere_name IN ('Сельское хозяйство', 'Экология', 'Ветеринария') 
+                        THEN 'Сельское хозяйство и экология'
+                    WHEN professional_sphere_name = 'Домашний персонал' 
+                        THEN 'Домашний персонал'
+                    WHEN professional_sphere_name IN ('Лесная промышленность', 'Деревообрабатывающая промышленность', 'Целлюлозно-бумажная промышленность') 
+                        THEN 'Лесная и деревообрабатывающая промышленность'
+                    WHEN professional_sphere_name = 'Легкая промышленность' 
+                        THEN 'Легкая промышленность'
+                    WHEN professional_sphere_name = 'Не указано' 
+                        THEN 'Не указано'
+                    WHEN professional_sphere_name IN ('Туризм', 'Гостиницы', 'Рестораны') 
+                        THEN 'Гостинично-ресторанный бизнес'
+                    WHEN professional_sphere_name IN ('Транспорт', 'Автобизнес', 'Логистика', 'Склад', 'ВЭД') 
+                        THEN 'Транспорт и логистика'
+                    WHEN professional_sphere_name = 'Высший менеджмент' 
+                        THEN 'Топ-менеджмент'
+                    WHEN professional_sphere_name IN ('Металлургия', 'Металлообработка') 
+                        THEN 'Металлургия и металлообработка'
+                    WHEN professional_sphere_name IN ('Химическая промышленность', 'Нефтехимическая промышленность', 'Топливная промышленность') 
+                        THEN 'Химическая и нефтехимическая промышленность'
+                    WHEN professional_sphere_name IN ('Консалтинг', 'Стратегическое развитие', 'Управление') 
+                        THEN 'Консалтинг и управление'
+                    WHEN professional_sphere_name = 'Рабочие специальности' 
+                        THEN 'Рабочие специальности'
+                    WHEN professional_sphere_name IN ('Строительство', 'Ремонт', 'Стройматериалы', 'Недвижимость') 
+                        THEN 'Строительство и недвижимость'
+                    WHEN professional_sphere_name IN ('Развлечения', 'Мода', 'Шоу-бизнес') 
+                        THEN 'Индустрия развлечений'
+                    WHEN professional_sphere_name IN ('Бухгалтерия', 'Налоги', 'Управленческий учет') 
+                        THEN 'Финансы и учет'
+                    WHEN professional_sphere_name = 'Работы, не требующие квалификации' 
+                        THEN 'Неквалифицированный труд'
+                    WHEN professional_sphere_name = 'Производство' 
+                        THEN 'Общее производство'
+                    WHEN professional_sphere_name IN ('Информационные технологии', 'Телекоммуникации', 'Связь') 
+                        THEN 'IT и телекоммуникации'
+                    WHEN professional_sphere_name IN ('Банки', 'Кредит', 'Страхование', 'Пенсионное обеспечение') 
+                        THEN 'Финансовые услуги'
+                    WHEN professional_sphere_name IN ('Искусство', 'Культура и развлечения') 
+                        THEN 'Культура и искусство'
+                    WHEN professional_sphere_name IN ('Образование', 'Наука') 
+                        THEN 'Образование и наука'
+                    WHEN professional_sphere_name = 'Добывающая промышленность' 
+                        THEN 'Добывающая промышленность'
+                    WHEN professional_sphere_name = 'Пищевая промышленность' 
+                        THEN 'Пищевая промышленность'
+                    WHEN professional_sphere_name IN ('Маркетинг', 'Реклама', 'PR') 
+                        THEN 'Маркетинг и реклама'
+                    WHEN professional_spрузка_name = 'Юриспруденция' 
+                        THEN 'Юридические услуги'
+                    WHEN professional_sphere_name IN ('Безопасность', 'Службы охраны') 
+                        THEN 'Безопасность'
+                    WHEN professional_sphere_name IN ('Здравоохранение', 'Социальное обеспечение') 
+                        THEN 'Здравоохранение'
+                    WHEN professional_sphere_name IN ('ЖКХ', 'Эксплуатация') 
+                        THEN 'ЖКХ и эксплуатация'
+                    WHEN professional_sphere_name = 'Электроэнергетика' 
+                        THEN 'Энергетика'
+                    WHEN professional_sphere_name IN ('Услуги населению', 'Сервисное обслуживание') 
+                        THEN 'Сфера услуг'
+                    WHEN professional_sphere_name IN ('Спорт', 'Фитнес', 'Салоны красоты') 
+                        THEN 'Спорт и красота'
+                    WHEN professional_sphere_name IN ('Государственная служба', 'Некоммерческие организации') 
+                        THEN 'Госсектор и НКО'
+                    WHEN professional_sphere_name = 'Машиностроение' 
+                        THEN 'Машиностроение'
+                    WHEN professional_sphere_name IN ('Административная работа', 'Секретариат', 'АХО') 
+                        THEN 'Административный персонал'
+                    ELSE 'Другое'
+                END  as company_industry,
+                case v.company_business_size  
+                    when 'MICRO' then 50
+                    when 'SMALL' then 100
+                    when 'MIDDLE' then 250
+                    when 'BIG' then 500 
+                    else 1000
+                end as company_size
+            FROM dm.vacancies v
+            LEFT JOIN dds.companies c ON v.company_id = c.company_id
+            WHERE v.salary_min IS NOT NULL 
+              AND v.salary_max IS NOT NULL
+              AND v.date_published >= CURRENT_DATE - INTERVAL '2 years'
+            ': relation "dds.companies" does not exist
+LINE 98:             LEFT JOIN dds.companies c ON v.company_id = c.co...
+                               ^
+
+2025-06-26 14:09:55,792 - __main__ - ERROR - Критическая ошибка в пайплайне: Execution failed on sql '
+            SELECT 
+                v.vacancy_id,
+                v.professional_sphere_name,
+                v.schedule_type,
+                v.experience_requirements,
+                v.company_business_size,
+                v.region_name,
+                v.education_type,
+                v.salary_min,
+                v.salary_max,
+                v.date_published,
+                v.vacancy_name as job_title,
+                v.schedule_type employment_type,
+                CASE 
+                    WHEN professional_sphere_name IN ('Продажи', 'Закупки', 'Снабжение', 'Торговля') 
+                        THEN 'Торговля и снабжение'
+                    WHEN professional_sphere_name IN ('Кадровая служба', 'Управление персоналом') 
+                        THEN 'HR и управление персоналом'
+                    WHEN professional_sphere_name IN ('Сельское хозяйство', 'Экология', 'Ветеринария') 
+                        THEN 'Сельское хозяйство и экология'
+                    WHEN professional_sphere_name = 'Домашний персонал' 
+                        THEN 'Домашний персонал'
+                    WHEN professional_sphere_name IN ('Лесная промышленность', 'Деревообрабатывающая промышленность', 'Целлюлозно-бумажная промышленность') 
+                        THEN 'Лесная и деревообрабатывающая промышленность'
+                    WHEN professional_sphere_name = 'Легкая промышленность' 
+                        THEN 'Легкая промышленность'
+                    WHEN professional_sphere_name = 'Не указано' 
+                        THEN 'Не указано'
+                    WHEN professional_sphere_name IN ('Туризм', 'Гостиницы', 'Рестораны') 
+                        THEN 'Гостинично-ресторанный бизнес'
+                    WHEN professional_sphere_name IN ('Транспорт', 'Автобизнес', 'Логистика', 'Склад', 'ВЭД') 
+                        THEN 'Транспорт и логистика'
+                    WHEN professional_sphere_name = 'Высший менеджмент' 
+                        THEN 'Топ-менеджмент'
+                    WHEN professional_sphere_name IN ('Металлургия', 'Металлообработка') 
+                        THEN 'Металлургия и металлообработка'
+                    WHEN professional_sphere_name IN ('Химическая промышленность', 'Нефтехимическая промышленность', 'Топливная промышленность') 
+                        THEN 'Химическая и нефтехимическая промышленность'
+                    WHEN professional_sphere_name IN ('Консалтинг', 'Стратегическое развитие', 'Управление') 
+                        THEN 'Консалтинг и управление'
+                    WHEN professional_sphere_name = 'Рабочие специальности' 
+                        THEN 'Рабочие специальности'
+                    WHEN professional_sphere_name IN ('Строительство', 'Ремонт', 'Стройматериалы', 'Недвижимость') 
+                        THEN 'Строительство и недвижимость'
+                    WHEN professional_sphere_name IN ('Развлечения', 'Мода', 'Шоу-бизнес') 
+                        THEN 'Индустрия развлечений'
+                    WHEN professional_sphere_name IN ('Бухгалтерия', 'Налоги', 'Управленческий учет') 
+                        THEN 'Финансы и учет'
+                    WHEN professional_sphere_name = 'Работы, не требующие квалификации' 
+                        THEN 'Неквалифицированный труд'
+                    WHEN professional_sphere_name = 'Производство' 
+                        THEN 'Общее производство'
+                    WHEN professional_sphere_name IN ('Информационные технологии', 'Телекоммуникации', 'Связь') 
+                        THEN 'IT и телекоммуникации'
+                    WHEN professional_sphere_name IN ('Банки', 'Кредит', 'Страхование', 'Пенсионное обеспечение') 
+                        THEN 'Финансовые услуги'
+                    WHEN professional_sphere_name IN ('Искусство', 'Культура и развлечения') 
+                        THEN 'Культура и искусство'
+                    WHEN professional_sphere_name IN ('Образование', 'Наука') 
+                        THEN 'Образование и наука'
+                    WHEN professional_sphere_name = 'Добывающая промышленность' 
+                        THEN 'Добывающая промышленность'
+                    WHEN professional_sphere_name = 'Пищевая промышленность' 
+                        THEN 'Пищевая промышленность'
+                    WHEN professional_sphere_name IN ('Маркетинг', 'Реклама', 'PR') 
+                        THEN 'Маркетинг и реклама'
+                    WHEN professional_spрузка_name = 'Юриспруденция' 
+                        THEN 'Юридические услуги'
+                    WHEN professional_sphere_name IN ('Безопасность', 'Службы охраны') 
+                        THEN 'Безопасность'
+                    WHEN professional_sphere_name IN ('Здравоохранение', 'Социальное обеспечение') 
+                        THEN 'Здравоохранение'
+                    WHEN professional_sphere_name IN ('ЖКХ', 'Эксплуатация') 
+                        THEN 'ЖКХ и эксплуатация'
+                    WHEN professional_sphere_name = 'Электроэнергетика' 
+                        THEN 'Энергетика'
+                    WHEN professional_sphere_name IN ('Услуги населению', 'Сервисное обслуживание') 
+                        THEN 'Сфера услуг'
+                    WHEN professional_sphere_name IN ('Спорт', 'Фитнес', 'Салоны красоты') 
+                        THEN 'Спорт и красота'
+                    WHEN professional_sphere_name IN ('Государственная служба', 'Некоммерческие организации') 
+                        THEN 'Госсектор и НКО'
+                    WHEN professional_sphere_name = 'Машиностроение' 
+                        THEN 'Машиностроение'
+                    WHEN professional_sphere_name IN ('Административная работа', 'Секретариат', 'АХО') 
+                        THEN 'Административный персонал'
+                    ELSE 'Другое'
+                END  as company_industry,
+                case v.company_business_size  
+                    when 'MICRO' then 50
+                    when 'SMALL' then 100
+                    when 'MIDDLE' then 250
+                    when 'BIG' then 500 
+                    else 1000
+                end as company_size
+            FROM dm.vacancies v
+            LEFT JOIN dds.companies c ON v.company_id = c.company_id
+            WHERE v.salary_min IS NOT NULL 
+              AND v.salary_max IS NOT NULL
+              AND v.date_published >= CURRENT_DATE - INTERVAL '2 years'
+            ': relation "dds.companies" does not exist
+LINE 98:             LEFT JOIN dds.companies c ON v.company_id = c.co...
+                               ^
+
+2025-06-26 14:10:21,654 - __main__ - INFO - Успешное подключение к базе данных
+2025-06-26 14:10:21,673 - __main__ - INFO - SQLAlchemy engine создан успешно
+2025-06-26 14:10:21,675 - __main__ - INFO - Таблицы успешно созданы
+2025-06-26 14:10:21,675 - __main__ - INFO - Этап 1/6: Загрузка данных...
+2025-06-26 14:10:21,682 - __main__ - ERROR - Ошибка при загрузке данных: Execution failed on sql '
+            SELECT 
+                v.vacancy_id,
+                v.professional_sphere_name,
+                v.schedule_type,
+                v.experience_requirements,
+                v.company_business_size,
+                v.region_name,
+                v.education_type,
+                v.salary_min,
+                v.salary_max,
+                v.date_published,
+                v.vacancy_name as job_title,
+                v.schedule_type employment_type,
+                CASE 
+                    WHEN professional_sphere_name IN ('Продажи', 'Закупки', 'Снабжение', 'Торговля') 
+                        THEN 'Торговля и снабжение'
+                    WHEN professional_sphere_name IN ('Кадровая служба', 'Управление персоналом') 
+                        THEN 'HR и управление персоналом'
+                    WHEN professional_sphere_name IN ('Сельское хозяйство', 'Экология', 'Ветеринария') 
+                        THEN 'Сельское хозяйство и экология'
+                    WHEN professional_sphere_name = 'Домашний персонал' 
+                        THEN 'Домашний персонал'
+                    WHEN professional_sphere_name IN ('Лесная промышленность', 'Деревообрабатывающая промышленность', 'Целлюлозно-бумажная промышленность') 
+                        THEN 'Лесная и деревообрабатывающая промышленность'
+                    WHEN professional_sphere_name = 'Легкая промышленность' 
+                        THEN 'Легкая промышленность'
+                    WHEN professional_sphere_name = 'Не указано' 
+                        THEN 'Не указано'
+                    WHEN professional_sphere_name IN ('Туризм', 'Гостиницы', 'Рестораны') 
+                        THEN 'Гостинично-ресторанный бизнес'
+                    WHEN professional_sphere_name IN ('Транспорт', 'Автобизнес', 'Логистика', 'Склад', 'ВЭД') 
+                        THEN 'Транспорт и логистика'
+                    WHEN professional_sphere_name = 'Высший менеджмент' 
+                        THEN 'Топ-менеджмент'
+                    WHEN professional_sphere_name IN ('Металлургия', 'Металлообработка') 
+                        THEN 'Металлургия и металлообработка'
+                    WHEN professional_sphere_name IN ('Химическая промышленность', 'Нефтехимическая промышленность', 'Топливная промышленность') 
+                        THEN 'Химическая и нефтехимическая промышленность'
+                    WHEN professional_sphere_name IN ('Консалтинг', 'Стратегическое развитие', 'Управление') 
+                        THEN 'Консалтинг и управление'
+                    WHEN professional_sphere_name = 'Рабочие специальности' 
+                        THEN 'Рабочие специальности'
+                    WHEN professional_sphere_name IN ('Строительство', 'Ремонт', 'Стройматериалы', 'Недвижимость') 
+                        THEN 'Строительство и недвижимость'
+                    WHEN professional_sphere_name IN ('Развлечения', 'Мода', 'Шоу-бизнес') 
+                        THEN 'Индустрия развлечений'
+                    WHEN professional_sphere_name IN ('Бухгалтерия', 'Налоги', 'Управленческий учет') 
+                        THEN 'Финансы и учет'
+                    WHEN professional_sphere_name = 'Работы, не требующие квалификации' 
+                        THEN 'Неквалифицированный труд'
+                    WHEN professional_sphere_name = 'Производство' 
+                        THEN 'Общее производство'
+                    WHEN professional_sphere_name IN ('Информационные технологии', 'Телекоммуникации', 'Связь') 
+                        THEN 'IT и телекоммуникации'
+                    WHEN professional_sphere_name IN ('Банки', 'Кредит', 'Страхование', 'Пенсионное обеспечение') 
+                        THEN 'Финансовые услуги'
+                    WHEN professional_sphere_name IN ('Искусство', 'Культура и развлечения') 
+                        THEN 'Культура и искусство'
+                    WHEN professional_sphere_name IN ('Образование', 'Наука') 
+                        THEN 'Образование и наука'
+                    WHEN professional_sphere_name = 'Добывающая промышленность' 
+                        THEN 'Добывающая промышленность'
+                    WHEN professional_sphere_name = 'Пищевая промышленность' 
+                        THEN 'Пищевая промышленность'
+                    WHEN professional_sphere_name IN ('Маркетинг', 'Реклама', 'PR') 
+                        THEN 'Маркетинг и реклама'
+                    WHEN professional_spрузка_name = 'Юриспруденция' 
+                        THEN 'Юридические услуги'
+                    WHEN professional_sphere_name IN ('Безопасность', 'Службы охраны') 
+                        THEN 'Безопасность'
+                    WHEN professional_sphere_name IN ('Здравоохранение', 'Социальное обеспечение') 
+                        THEN 'Здравоохранение'
+                    WHEN professional_sphere_name IN ('ЖКХ', 'Эксплуатация') 
+                        THEN 'ЖКХ и эксплуатация'
+                    WHEN professional_sphere_name = 'Электроэнергетика' 
+                        THEN 'Энергетика'
+                    WHEN professional_sphere_name IN ('Услуги населению', 'Сервисное обслуживание') 
+                        THEN 'Сфера услуг'
+                    WHEN professional_sphere_name IN ('Спорт', 'Фитнес', 'Салоны красоты') 
+                        THEN 'Спорт и красота'
+                    WHEN professional_sphere_name IN ('Государственная служба', 'Некоммерческие организации') 
+                        THEN 'Госсектор и НКО'
+                    WHEN professional_sphere_name = 'Машиностроение' 
+                        THEN 'Машиностроение'
+                    WHEN professional_sphere_name IN ('Административная работа', 'Секретариат', 'АХО') 
+                        THEN 'Административный персонал'
+                    ELSE 'Другое'
+                END  as company_industry,
+                case v.company_business_size  
+                    when 'MICRO' then 50
+                    when 'SMALL' then 100
+                    when 'MIDDLE' then 250
+                    when 'BIG' then 500 
+                    else 1000
+                end as company_size
+            FROM dm.vacancies v
+            WHERE v.salary_min IS NOT NULL 
+              AND v.salary_max IS NOT NULL
+              AND v.date_published >= CURRENT_DATE - INTERVAL '2 years'
+            ': column "professional_spрузка_name" does not exist
+LINE 68:                     WHEN professional_spрузка_name = 'Юриспр...
+                                  ^
+
+2025-06-26 14:10:21,686 - __main__ - ERROR - Критическая ошибка в пайплайне: Execution failed on sql '
+            SELECT 
+                v.vacancy_id,
+                v.professional_sphere_name,
+                v.schedule_type,
+                v.experience_requirements,
+                v.company_business_size,
+                v.region_name,
+                v.education_type,
+                v.salary_min,
+                v.salary_max,
+                v.date_published,
+                v.vacancy_name as job_title,
+                v.schedule_type employment_type,
+                CASE 
+                    WHEN professional_sphere_name IN ('Продажи', 'Закупки', 'Снабжение', 'Торговля') 
+                        THEN 'Торговля и снабжение'
+                    WHEN professional_sphere_name IN ('Кадровая служба', 'Управление персоналом') 
+                        THEN 'HR и управление персоналом'
+                    WHEN professional_sphere_name IN ('Сельское хозяйство', 'Экология', 'Ветеринария') 
+                        THEN 'Сельское хозяйство и экология'
+                    WHEN professional_sphere_name = 'Домашний персонал' 
+                        THEN 'Домашний персонал'
+                    WHEN professional_sphere_name IN ('Лесная промышленность', 'Деревообрабатывающая промышленность', 'Целлюлозно-бумажная промышленность') 
+                        THEN 'Лесная и деревообрабатывающая промышленность'
+                    WHEN professional_sphere_name = 'Легкая промышленность' 
+                        THEN 'Легкая промышленность'
+                    WHEN professional_sphere_name = 'Не указано' 
+                        THEN 'Не указано'
+                    WHEN professional_sphere_name IN ('Туризм', 'Гостиницы', 'Рестораны') 
+                        THEN 'Гостинично-ресторанный бизнес'
+                    WHEN professional_sphere_name IN ('Транспорт', 'Автобизнес', 'Логистика', 'Склад', 'ВЭД') 
+                        THEN 'Транспорт и логистика'
+                    WHEN professional_sphere_name = 'Высший менеджмент' 
+                        THEN 'Топ-менеджмент'
+                    WHEN professional_sphere_name IN ('Металлургия', 'Металлообработка') 
+                        THEN 'Металлургия и металлообработка'
+                    WHEN professional_sphere_name IN ('Химическая промышленность', 'Нефтехимическая промышленность', 'Топливная промышленность') 
+                        THEN 'Химическая и нефтехимическая промышленность'
+                    WHEN professional_sphere_name IN ('Консалтинг', 'Стратегическое развитие', 'Управление') 
+                        THEN 'Консалтинг и управление'
+                    WHEN professional_sphere_name = 'Рабочие специальности' 
+                        THEN 'Рабочие специальности'
+                    WHEN professional_sphere_name IN ('Строительство', 'Ремонт', 'Стройматериалы', 'Недвижимость') 
+                        THEN 'Строительство и недвижимость'
+                    WHEN professional_sphere_name IN ('Развлечения', 'Мода', 'Шоу-бизнес') 
+                        THEN 'Индустрия развлечений'
+                    WHEN professional_sphere_name IN ('Бухгалтерия', 'Налоги', 'Управленческий учет') 
+                        THEN 'Финансы и учет'
+                    WHEN professional_sphere_name = 'Работы, не требующие квалификации' 
+                        THEN 'Неквалифицированный труд'
+                    WHEN professional_sphere_name = 'Производство' 
+                        THEN 'Общее производство'
+                    WHEN professional_sphere_name IN ('Информационные технологии', 'Телекоммуникации', 'Связь') 
+                        THEN 'IT и телекоммуникации'
+                    WHEN professional_sphere_name IN ('Банки', 'Кредит', 'Страхование', 'Пенсионное обеспечение') 
+                        THEN 'Финансовые услуги'
+                    WHEN professional_sphere_name IN ('Искусство', 'Культура и развлечения') 
+                        THEN 'Культура и искусство'
+                    WHEN professional_sphere_name IN ('Образование', 'Наука') 
+                        THEN 'Образование и наука'
+                    WHEN professional_sphere_name = 'Добывающая промышленность' 
+                        THEN 'Добывающая промышленность'
+                    WHEN professional_sphere_name = 'Пищевая промышленность' 
+                        THEN 'Пищевая промышленность'
+                    WHEN professional_sphere_name IN ('Маркетинг', 'Реклама', 'PR') 
+                        THEN 'Маркетинг и реклама'
+                    WHEN professional_spрузка_name = 'Юриспруденция' 
+                        THEN 'Юридические услуги'
+                    WHEN professional_sphere_name IN ('Безопасность', 'Службы охраны') 
+                        THEN 'Безопасность'
+                    WHEN professional_sphere_name IN ('Здравоохранение', 'Социальное обеспечение') 
+                        THEN 'Здравоохранение'
+                    WHEN professional_sphere_name IN ('ЖКХ', 'Эксплуатация') 
+                        THEN 'ЖКХ и эксплуатация'
+                    WHEN professional_sphere_name = 'Электроэнергетика' 
+                        THEN 'Энергетика'
+                    WHEN professional_sphere_name IN ('Услуги населению', 'Сервисное обслуживание') 
+                        THEN 'Сфера услуг'
+                    WHEN professional_sphere_name IN ('Спорт', 'Фитнес', 'Салоны красоты') 
+                        THEN 'Спорт и красота'
+                    WHEN professional_sphere_name IN ('Государственная служба', 'Некоммерческие организации') 
+                        THEN 'Госсектор и НКО'
+                    WHEN professional_sphere_name = 'Машиностроение' 
+                        THEN 'Машиностроение'
+                    WHEN professional_sphere_name IN ('Административная работа', 'Секретариат', 'АХО') 
+                        THEN 'Административный персонал'
+                    ELSE 'Другое'
+                END  as company_industry,
+                case v.company_business_size  
+                    when 'MICRO' then 50
+                    when 'SMALL' then 100
+                    when 'MIDDLE' then 250
+                    when 'BIG' then 500 
+                    else 1000
+                end as company_size
+            FROM dm.vacancies v
+            WHERE v.salary_min IS NOT NULL 
+              AND v.salary_max IS NOT NULL
+              AND v.date_published >= CURRENT_DATE - INTERVAL '2 years'
+            ': column "professional_spрузка_name" does not exist
+LINE 68:                     WHEN professional_spрузка_name = 'Юриспр...
+                                  ^
+
+2025-06-26 14:10:57,587 - __main__ - INFO - Успешное подключение к базе данных
+2025-06-26 14:10:57,605 - __main__ - INFO - SQLAlchemy engine создан успешно
+2025-06-26 14:10:57,607 - __main__ - INFO - Таблицы успешно созданы
+2025-06-26 14:10:57,608 - __main__ - INFO - Этап 1/6: Загрузка данных...
+2025-06-26 14:11:02,517 - __main__ - INFO - Загружено 326889 записей из БД
+2025-06-26 14:11:02,517 - __main__ - INFO - Этап 2/6: Предварительная обработка данных...
+2025-06-26 14:11:03,491 - __main__ - INFO - Данные успешно обработаны
+2025-06-26 14:11:03,492 - __main__ - INFO - Этап 3/6: Сохранение обработанных данных...
+2025-06-26 14:12:59,540 - __main__ - INFO - Промежуточные данные успешно сохранены в БД
+2025-06-26 14:12:59,639 - __main__ - INFO - Этап 4/6: Обучение модели...
+2025-06-26 14:12:59,899 - __main__ - INFO - Конвейер модели успешно построен
+2025-06-26 14:12:59,899 - __main__ - INFO - Начало обучения модели...
+2025-06-26 17:09:12,348 - __main__ - INFO - Лучшие параметры модели: {'regressor__learning_rate': 0.1, 'regressor__max_depth': 6, 'regressor__n_estimators': 300}
+2025-06-26 17:09:12,356 - __main__ - INFO - MAE: 12776.53
+2025-06-26 17:09:12,356 - __main__ - INFO - RMSE: 24050.65
+2025-06-26 17:09:12,356 - __main__ - INFO - R2 Score: 0.44
+2025-06-26 17:09:12,423 - __main__ - INFO - Этап 5/6: Сохранение модели...
+2025-06-26 17:09:12,563 - __main__ - INFO - Модель сохранена по пути: ./models/salary_predictor_v3.0.pkl
+2025-06-26 17:09:12,563 - __main__ - INFO - Этап 6/6: Создание и сохранение предсказаний...
+2025-06-26 17:09:19,097 - __main__ - ERROR - Ошибка при создании предсказаний: 'log_avg_salary'
+2025-06-26 17:09:19,097 - __main__ - ERROR - Критическая ошибка в пайплайне: 'log_avg_salary'
