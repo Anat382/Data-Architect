@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:dc="http://purl.org/dc/terms/" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="vacancies">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" maxOccurs="unbounded" name="vacancy">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:choice maxOccurs="unbounded">
+                                <xs:element minOccurs="0" name="region">
+                                    <xs:complexType>
+                                        <xs:attribute name="rel" type="xs:string" use="optional" />
+                                        <xs:attribute name="resource" type="xs:string" use="optional" />
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element minOccurs="0" name="organization">
+                                    <xs:complexType>
+                                        <xs:attribute name="rel" type="xs:string" use="optional" />
+                                        <xs:attribute name="resource" type="xs:string" use="optional" />
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element minOccurs="0" name="profession">
+                                    <xs:complexType>
+                                        <xs:attribute name="rel" type="xs:string" use="optional" />
+                                        <xs:attribute name="resource" type="xs:string" use="optional" />
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element minOccurs="0" name="federal_district">
+                                    <xs:complexType>
+                                        <xs:attribute name="rel" type="xs:string" use="optional" />
+                                        <xs:attribute name="resource" type="xs:string" use="optional" />
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element minOccurs="0" name="id" type="xs:string" />
+                                <xs:element minOccurs="0" name="stateRegionCode" type="xs:unsignedLong" />
+                                <xs:element minOccurs="0" name="additionalRequirements" type="xs:string" />
+                                <xs:element minOccurs="0" name="vacancyName" type="xs:string" />
+                                <xs:element minOccurs="0" name="codeProfession" type="xs:unsignedInt" />
+                                <xs:element minOccurs="0" name="codeProfessionalSphere" type="xs:string" />
+                                <xs:element minOccurs="0" name="professionalSphereName" type="xs:string" />
+                                <xs:element minOccurs="0" name="vacancyAddress" type="xs:string" />
+                                <xs:element minOccurs="0" name="vacancyAddressHouse" type="xs:string" />
+                                <xs:element minOccurs="0" name="vacancyAddressAdditionalInfo" type="xs:string" />
+                                <xs:element minOccurs="0" name="salary" type="xs:string" />
+                                <xs:element minOccurs="0" name="salaryMin" type="xs:unsignedInt" />
+                                <xs:element minOccurs="0" name="salaryMax" type="xs:unsignedInt" />
+                                <xs:element minOccurs="0" name="socialProtecteds" type="xs:string" />
+                                <xs:element minOccurs="0" name="busyType" type="xs:string" />
+                                <xs:element minOccurs="0" name="hardSkills">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element minOccurs="0" maxOccurs="unbounded" name="hardSkillName" type="xs:string" />
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element minOccurs="0" name="softSkills">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element minOccurs="0" maxOccurs="unbounded" name="softSkillName" type="xs:string" />
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element minOccurs="0" name="experienceRequirements" type="xs:unsignedByte" />
+                                <xs:element minOccurs="0" name="scheduleType" type="xs:string" />
+                                <xs:element minOccurs="0" name="otherVacancyBenefit" type="xs:string" />
+                                <xs:element minOccurs="0" name="careerPerspective" type="xs:boolean" />
+                                <xs:element minOccurs="0" name="codeExternalSystem" type="xs:string" />
+                                <xs:element minOccurs="0" name="idPriorityCategory" type="xs:string" />
+                                <xs:element minOccurs="0" name="needMedcard" type="xs:string" />
+                                <xs:element minOccurs="0" name="sourceType" type="xs:string" />
+                                <xs:element minOccurs="0" name="requiredCertificates" type="xs:string" />
+                                <xs:element minOccurs="0" name="requiredDriveLicense">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element minOccurs="0" maxOccurs="unbounded" name="license" type="xs:string" />
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element minOccurs="0" name="transportCompensation" type="xs:string" />
+                                <xs:element minOccurs="0" name="retrainingCapability" type="xs:boolean" />
+                                <xs:element minOccurs="0" name="retrainingGrantValue" type="xs:unsignedInt" />
+                                <xs:element minOccurs="0" name="changeTime" type="xs:string" />
+                                <xs:element minOccurs="0" name="contactPerson" type="xs:string" />
+                                <xs:element minOccurs="0" name="contactSource" type="xs:string" />
+                                <xs:element minOccurs="0" name="fullCompanyName" type="xs:string" />
+                                <xs:element minOccurs="0" name="qualifications" type="xs:string" />
+                                <xs:element minOccurs="0" name="oksoCode" type="xs:unsignedInt" />
+                                <xs:element minOccurs="0" name="companyBusinessSize" type="xs:string" />
+                                <xs:element minOccurs="0" name="dateModify" type="xs:string" />
+                                <xs:element minOccurs="0" name="workPlaces" type="xs:unsignedShort" />
+                                <xs:element minOccurs="0" name="isUzbekistanRecruitment" type="xs:boolean" />
+                                <xs:element minOccurs="0" name="federalDistrictCode" type="xs:unsignedByte" />
+                                <xs:element minOccurs="0" name="datePublished" type="xs:string" />
+                                <xs:element minOccurs="0" name="accommodationCapability" type="xs:boolean" />
+                                <xs:element minOccurs="0" name="accommodationType" type="xs:string" />
+                                <xs:element minOccurs="0" name="foreignWorkersCapability" type="xs:boolean" />
+                                <xs:element minOccurs="0" name="metroIds" type="xs:string" />
+                                <xs:element minOccurs="0" name="isQuoted" type="xs:boolean" />
+                                <xs:element minOccurs="0" name="creationDate" type="xs:string" />
+                                <xs:element minOccurs="0" name="responsibilities" type="xs:string" />
+                                <xs:element minOccurs="0" name="addressCode" type="xs:unsignedLong" />
+                                <xs:element minOccurs="0" name="isMobilityProgram" type="xs:boolean" />
+                                <xs:element minOccurs="0" name="regionName" type="xs:string" />
+                                <xs:element minOccurs="0" name="status" type="xs:string" />
+                                <xs:element minOccurs="0" name="vacancyUrl" type="xs:string" />
+                                <xs:element minOccurs="0" name="positionRequirements" type="xs:string" />
+                                <xs:element minOccurs="0" name="geo">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element minOccurs="0" name="latitude" type="xs:decimal" />
+                                            <xs:element minOccurs="0" name="longitude" type="xs:decimal" />
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element minOccurs="0" name="educationRequirements">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:choice maxOccurs="unbounded">
+                                                <xs:element minOccurs="0" name="educationType" type="xs:string" />
+                                                <xs:element minOccurs="0" name="academicDegree" type="xs:string" />
+                                                <xs:element minOccurs="0" name="educationSpeciality" type="xs:string" />
+                                            </xs:choice>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element minOccurs="0" name="premium">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element minOccurs="0" name="premiumSize" type="xs:unsignedInt" />
+                                            <xs:element minOccurs="0" name="premiumType" type="xs:string" />
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element minOccurs="0" name="company">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element minOccurs="0" name="companyCode" type="xs:string" />
+                                            <xs:element minOccurs="0" name="url" type="xs:string" />
+                                            <xs:element minOccurs="0" name="inn" type="xs:unsignedLong" />
+                                            <xs:element minOccurs="0" name="email" type="xs:string" />
+                                            <xs:element minOccurs="0" name="kpp" type="xs:unsignedInt" />
+                                            <xs:element minOccurs="0" name="ogrn" type="xs:unsignedLong" />
+                                            <xs:element minOccurs="0" name="phone" type="xs:string" />
+                                            <xs:element minOccurs="0" name="site" type="xs:string" />
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element minOccurs="0" name="isModerated" type="xs:boolean" />
+                                <xs:element minOccurs="0" name="deleted" type="xs:boolean" />
+                                <xs:element minOccurs="0" name="visibility" type="xs:string" />
+                                <xs:element minOccurs="0" name="contactList">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element minOccurs="0" maxOccurs="unbounded" name="contact">
+                                                <xs:complexType>
+                                                    <xs:sequence>
+                                                        <xs:element minOccurs="0" name="contactType" type="xs:string" />
+                                                        <xs:element minOccurs="0" name="contactValue" type="xs:string" />
+                                                        <xs:element minOccurs="0" name="isModerated" type="xs:boolean" />
+                                                        <xs:element minOccurs="0" name="isPreferred" type="xs:boolean" />
+                                                    </xs:sequence>
+                                                </xs:complexType>
+                                            </xs:element>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                                <xs:element minOccurs="0" name="languageKnowledge">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element minOccurs="0" maxOccurs="unbounded" name="language">
+                                                <xs:complexType>
+                                                    <xs:sequence>
+                                                        <xs:element minOccurs="0" name="code_language" type="xs:string" />
+                                                        <xs:element minOccurs="0" name="id_owner" type="xs:string" />
+                                                        <xs:element minOccurs="0" name="level" type="xs:string" />
+                                                        <xs:element minOccurs="0" name="type" type="xs:string" />
+                                                    </xs:sequence>
+                                                </xs:complexType>
+                                            </xs:element>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
+                            </xs:choice>
+                        </xs:sequence>
+                        <xs:attribute name="typeof" type="xs:string" use="optional" />
+                        <xs:attribute name="about" type="xs:string" use="optional" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="vocab" type="xs:string" use="optional" />
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,539 @@
+[
+  {
+    "code": "vacancies",
+    "name": "Вакансии"{
+      "code": "vacancy",
+      "name": "Вакансия"{
+        "code": "region",
+        "name": "Регион",
+        "type": "varchar",
+        "example": "7800000000000"
+      },
+      {
+        "code": "organization",
+        "name": "Организация",
+        "type": "varchar",
+        "example": "Уральская государственная академия ветеринарной медицины"
+      },
+      {
+        "code": "profession",
+        "name": "Профессия",
+        "type": "varchar",
+        "example": "Водитель"
+      },
+      {
+        "code": "federal_district",
+        "name": "Федеральный округ",
+        "type": "varchar"
+      },
+      {
+        "code": "id",
+        "name": "Идентификатор",
+        "type": "timeuuid",
+        "example": "15622222-e0b4-11eb-98ee-754dfb416b00"
+      },
+      {
+        "code": "stateRegionCode",
+        "name": "Код федерального региона",
+        "type": "int",
+        "example": "7800000000000"
+      },
+      {
+        "code": "vacancyName",
+        "name": "Наименование вакансии",
+        "type": "varchar",
+        "example": "Пилот"
+      },
+      {
+        "code": "codeProfession",
+        "name": "Код профессии",
+        "type": "int",
+        "example": "194795"
+      },
+      {
+        "code": "codeProfessionalSphere",
+        "name": "Код профессиональной сферы",
+        "type": "varchar",
+        "example": "TheAviationIndustry"
+      },
+      {
+        "code": "professionalSphereName",
+        "name": "Наименование профессиональной сферы",
+        "type": "varchar",
+        "example": "Авиационная промышленность"
+      },
+      {
+        "code": "vacancyAddressHouse",
+        "name": "Дом",
+        "type": "varchar",
+        "example": "45"
+      },
+      {
+        "code": "vacancyAddressAdditionalInfo",
+        "name": "Адрес(доп. информация)",
+        "type": "varchar",
+        "example": "Вход с торца"
+      },
+      {
+        "code": "salary",
+        "name": "Заработная плата"{
+          "code": "salary_min",
+          "name": "Минимальная заработная плата",
+          "type": "int",
+          "example": "60000"
+        },
+        {
+          "code": "salary_max",
+          "name": "Максимальная заработная плата",
+          "type": "int",
+          "example": "70000"
+        }
+      },
+      {
+        "code": "socialProtecteds",
+        "name": "Группа соц. защищенности",
+        {
+          "code": "socialProtectedsId",
+          "name": "Идентификатор группы соц. защищенности",
+          "type": "timeuuid",
+          "example": "d8a416b0-3051-11ed-b599-8b3d138c2acd"
+        },
+        {
+          "code": "socialProtected",
+          "name": "Группа соц. защищенности",
+          "type": "varchar",
+          "example": "Инвалиды"
+        },
+      },
+      {
+        "code": "busyType",
+        "name": "Тип занятости",
+        "type": "varchar",
+        "example": "Полная занятость"
+      },
+      {
+        "code": "hardSkills",
+        "name": "Профессиональные навыки",
+        "type": "varchar",
+        "example": "Работа с Excel"
+      },
+      {
+        "code": "softSkills",
+        "name": "Гибкие навыки",
+        "type": "varchar",
+        "example": "Аккуратность"
+      },
+      {
+        "code": "experienceRequirements",
+        "name": "Требуемый опыт",
+        "type": "int",
+        "example": "1"
+      },
+      {
+        "code": "scheduleType",
+        "name": "График работы",
+        "type": "varchar",
+        "example": "Полный рабочий день"
+      },
+      {
+        "code": "otherVacancyBenefit",
+        "name": "Дополнительные бонусы",
+        "type": "varchar",
+        "example": "Социальный пакет, Предоставление спец.одежды "
+      },
+      {
+        "code": "careerPerspective",
+        "name": "Карьерный рост",
+        "type": "bool",
+        "example": "true"
+      },
+      {
+        "code": "idPriorityCategory",
+        "name": "Категория приоритетности. Признак \"Опытные кадры\"",
+        "type": "bool",
+        "example": "true"
+      },
+      {
+        "code": "codeExternalSystem",
+        "name": "Код внешней системы",
+        "type": "varchar",
+        "example": "CZN"
+      },
+      {
+        "code": "needMedcard",
+        "name": "Необходимость мед. книжки",
+        "type": "bool",
+        "example": "true"
+      },
+      {
+        "code": "sourceType",
+        "name": "Тип источника вакансии",
+        "type": "varchar",
+        "example": "Вакансия кадрового агентства"
+      },
+      {
+        "code": "transportCompensation",
+        "name": "Оплата транспортных расходов",
+        "type": "varchar",
+        "example": "FUEL_PAID"
+      },
+      {
+        "code": "requiredDriveLicense",
+        "name": "Требуемые водительские удостоверения",
+        "type": "varchar",
+        "example": "[B, C, D, E]"
+      },
+      {
+        "code": "retrainingCapability",
+        "name": "Возможность переобучения",
+        "type": "varchar",
+        "example": "true"
+      },
+      {
+        "code": "requiredСertificates",
+        "name": "Наличие сертификатов",
+        "type": "varchar",
+        "example": "Требуется сертификат Менеджера"
+      },
+      {
+        "code": "changeTime",
+        "name": "Время изменения",
+        "type": "timestamp",
+        "example": "2023-04-07T14:36:12+0000"
+      },
+      {
+        "code": "contactPerson",
+        "name": "Контактное лицо в вакансии",
+        "type": "varchar",
+        "example": "Иванов Иван Иванович"
+      },
+      {
+        "code": "contactSource",
+        "name": "Источник контактных данных",
+        "type": "varchar",
+        "example": "COMPANY"
+      },
+      {
+        "code": "fullCompanyName",
+        "name": "Полное наименование компании",
+        "type": "varchar",
+        "example": "Бюджетное учреждение здравоохранения Омской области \"Городская стоматологическая поликлиника № 2\""
+      },
+      {
+        "code": "oksoCode",
+        "name": "ОКСО",
+        "type": "int",
+        "example": "32002"
+      },
+      {
+        "code": "companyBusinessSize",
+        "name": "Размер компании",
+        "type": "varchar",
+        "example": "SMALL"
+      },
+      {
+        "code": "dateModify",
+        "name": "Дата изменения",
+        "type": "timestamp",
+        "example": "2021-07-09T14:36:12+0000"
+      },
+      {
+        "code": "workPlaces",
+        "name": "Количество требуемых рабочих мест",
+        "type": "int",
+        "example": "23"
+      },
+      {
+        "code": "isUzbekistanRecruitment",
+        "name": "Признак участия в орг. наборе по Узбекистану",
+        "type": "bool",
+        "example": "true"
+      },
+      {
+        "code": "federalDistrictCode",
+        "name": "Код федерального округа",
+        "type": "int",
+        "example": "6000000000000"
+      },
+      {
+        "code": "datePublished",
+        "name": "Дата публикации",
+        "type": "timestamp",
+        "example": "2023-05-13T18:40:58"
+      },
+      {
+        "code": "accommodationCapability",
+        "name": "Возможность переезда",
+        "type": "bool",
+        "example": "true"
+      },
+      {
+        "code": "accommodationType",
+        "name": "Тип жилья",
+        "type": "varchar",
+        "example": "FLAT"
+      },
+      {
+        "code": "foreignWorkersCapability",
+        "name": "Возможность найма нерезидентов",
+        "type": "bool",
+        "example": "true"
+      },
+      {
+        "code": "metroIds",
+        "name": "Идентификаторы станций метро",
+        "type": "varchar",
+        "example": "Кожуховская"
+      },
+      {
+        "code": "isQuoted",
+        "name": "Квотируемая вакансия",
+        "type": "bool",
+        "example": "true"
+      },
+      {
+        "code": "creationDate",
+        "name": "Дата создания",
+        "type": "timestamp",
+        "example": "2021-07-09T12:49:22+0000"
+      },
+      {
+        "code": "isMobilityProgram",
+        "name": "Флаг включения в программу мобильности",
+        "type": "bool",
+        "example": "true"
+      },
+      {
+        "code": "regionName",
+        "name": "Наименование региона",
+        "type": "varchar",
+        "example": "Калужская область"
+      },
+      {
+        "code": "status",
+        "name": "Статус",
+        "type": "varchar",
+        "example": "Одобрено"
+      },
+      {
+        "code": "vacancyUrl",
+        "name": "Ссылка на вакансию",
+        "type": "varchar",
+        "example": "https://trudvsem.ru/vacancy/card/1146188001684/3890d655-9e28-11ed-a109-91f5d381286a"
+      },
+      {
+        "code": "positionRequirements",
+        "name": "Должностные требования",
+        "type": "varchar",
+        "example": "Планирование и прогнозирование затрат предприятия."
+      },
+      {
+        "code": "geo",
+        "name": "Геопозиция"{
+          "code": "longitude",
+          "name": "Географические координаты адреса_долгота",
+          "type": "decimal",
+          "example": "45.198009"
+        },
+        {
+          "code": "latitude",
+          "name": "Географические координаты адреса_широта",
+          "type": "decimal",
+          "example": "37.163573"
+        }
+      },
+      {
+        "code": "educationRequirements",
+        "name": "Требования к образованию",
+        {
+          "code": "educationType",
+          "name": "Тип образования",
+          "type": "varchar",
+          "example": "Среднее"
+        },
+        {
+          "code": "speciality",
+          "name": "Специальность по образованию",
+          "type": "varchar",
+          "example": "Лечебное дело"
+        },
+        {
+          "code": "academicDegree",
+          "name": "Ученая степень",
+          "type": "varchar",
+          "example": "Кандидат наук"
+        }
+      },
+      {
+        "code": "premium",
+        "name": "Премия",
+        {
+          "code": "premiumType",
+          "name": "Вид премии",
+          "type": "varchar",
+          "example": "Ежегодная премия"
+        },
+        {
+          "code": "premiumSize",
+          "name": "Размер премии",
+          "type": "int",
+          "example": "5000"
+        }
+      },
+      {
+        "code": "company",
+        "name": "Информация о компании"{
+          "code": "companyCode",
+          "name": "Код компании",
+          "type": "int",
+          "example": "1026002142044"
+        },
+        {
+          "code": "inn",
+          "name": "ИНН",
+          "type": "int",
+          "example": "6000000000"
+        },
+        {
+          "code": "email",
+          "name": "Email",
+          "type": "varchar",
+          "example": "email@mail.ru"
+        },
+        {
+          "code": "fax",
+          "name": "Факс",
+          "type": "int",
+          "example": "(111)1110000"
+        },
+        {
+          "code": "hrAgency",
+          "name": "Наличие HR",
+          "type": "bool",
+          "example": "true"
+        },
+        {
+          "code": "retraining",
+          "name": "Переподготовка",
+          "type": "bool",
+          "example": "false"
+        },
+        {
+          "code": "kpp",
+          "name": "КПП",
+          "type": "int",
+          "example": "600000000"
+        },
+        {
+          "code": "name",
+          "name": "Наименование компании",
+          "type": "varchar",
+          "example": "ООО  «Компания»"
+        },
+        {
+          "code": "ogrn",
+          "name": "ОГРН",
+          "type": "int",
+          "example": "10000000000000"
+        },
+        {
+          "code": "phone",
+          "name": "Телефон",
+          "type": "varchar",
+          "example": "+7(999)1234567"
+        },
+        {
+          "code": "site",
+          "name": "Сайт компании",
+          "type": "varchar",
+          "example": "https://company.ru"
+        },
+        {
+          "code": "url",
+          "name": "Cсылка на компанию на Портале",
+          "type": "varchar",
+          "example": "https://trudvsem.ru/company/1026002142044"
+        },
+      },
+      {
+        "code": "isModerated",
+        "name": "Признак модерации",
+        "type": "bool",
+        "example": "true"
+      },
+      {
+        "code": "deleted",
+        "name": "Признак удаления",
+        "type": "bool",
+        "example": "false"
+      },
+      {
+        "code": "visibility",
+        "name": "Видимость",
+        "type": "varchar",
+        "example": "Видно всем"
+      },
+      {
+        "code": "retrainingGrantValue",
+        "name": "Оплата во время обучения",
+        "type": "int",
+        "example": "20000"
+      },
+      {
+        "code": "languageKnowledge",
+        "name": "Знание языков",
+        {
+          "code": "codeLanguage",
+          "name": "Язык",
+          "type": "varchar",
+          "example": "Английский"
+        },
+        {
+          "code": "isPreferred",
+          "name": "Признак предпочтения",
+          "type": "bool",
+          "example": "true"
+        },
+        {
+          "code": "level",
+          "name": "Уровень знания",
+          "type": "varchar",
+          "example": "Чтение и письмо со словарем"
+        },
+        {
+          "code": "additionalRequirements",
+          "name": "Дополнительные требования",
+          "type": "varchar",
+          "example": "Классное руководство"
+        },
+        {
+          "code": "responsibilities",
+          "name": "Должностные обязанности",
+          "type": "varchar",
+          "example": "Организация олимпиад, конференций, турниров математических и лингвистических игр в школе и др."
+        },
+        {
+          "code": "addressCode",
+          "name": "Код адреса компании",
+          "type": "int",
+          "example": "27006000018000600"
+        },
+        {
+          "code": "ContactList",
+          "name": "Контактные данные",
+          {
+            "code": "contactType",
+            "name": "Тип контактных данных",
+            "type": "varchar",
+            "example": "PHONE, MOBILE, EMAIL, SKYPE, OTHER"
+          },
+          {
+            "code": "type",
+            "name": "Тип",
+            "type": "varchar",
+            "example": "LanguageKnowledge"
+          }
+        }
+      }
+    }
+  ]
